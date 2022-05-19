@@ -12,8 +12,8 @@ async function success+(GeolocationPosition) {
   return(GeolocationPosition);
 }
 
-async function getCurrentPosition+(error) {
-  console.log(error);
+async function getCurrentPosition(GeolocationPositionError) {
+  console.log(GeolocationPositionError);
   let ip = getIP();
   let url = `https://ipinfo.io/${ip}/json`;
   let data = await fetch(url);
@@ -22,25 +22,37 @@ async function getCurrentPosition+(error) {
 }
 
 async function getCurrentPosition(success, error, options) {
-  if('geolocation' in navigator) {
-    /* geolocation is available */
-  } else {
-    /* geolocation IS NOT available */
+  try {
+    if("geolocation" in navigator) {
+      
+    } else {
+      
+    }
+  } catch (err) {
+    error(err);
   }
 }
 
 async function watchPosition(success, error, options) {
-  if('geolocation' in navigator) {
-    /* geolocation is available */
-  } else {
-    /* geolocation IS NOT available */
+  try {
+    if("geolocation" in navigator) {
+      
+    } else {
+      
+    }
+  } catch (err) {
+    error(err);
   }
 }
 
 async function clearWatch(success, error, options) {
-  if('geolocation' in navigator) {
-    /* geolocation is available */
-  } else {
-    /* geolocation IS NOT available */
+  try {
+    if("geolocation" in navigator) {
+      
+    } else {
+      
+    }
+  } catch (err) {
+    error(err);
   }
 }
