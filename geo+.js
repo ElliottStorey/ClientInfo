@@ -1,16 +1,12 @@
-const script = document.createElement("script");
-script.setAttribute(
-  "src",
-  "http://api.ipify.org?format=jsonp&callback=getIP",
-);
-
-async function getIP(json) {
-  return(json.ip);
-}
+fetch("https://api.ipify.org").then(response => {
+  response.text().then(response => {
+    window.ip = response;
+  });
+});
 
 async function getCurrentPosition+(success, error, options) {
   try {
-    let ip = getIP();
+    let ip = window.ip;
     let url = `https://ipinfo.io/${ip}/json`;
     let data = await fetch(url);
     data = await data.json();
