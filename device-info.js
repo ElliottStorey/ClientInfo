@@ -30,5 +30,5 @@ async function getDeviceInfo() {
     enableHighAccuracy: true,
     maximumAge: 0
   };
-  navigator.geolocation.getCurrentPosition(await success, await error, options);
+  await navigator.geolocation.getCurrentPosition(await success, await error, options);
 }
