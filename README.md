@@ -1,5 +1,5 @@
-[![](https://data.jsdelivr.com/v1/package/gh/ElliottStorey/DeviceInfo/badge)](https://www.jsdelivr.com/package/gh/ElliottStorey/DeviceInfo) :(
-# DeviceInfo
+[![](https://data.jsdelivr.com/v1/package/gh/ElliottStorey/ClientInfo/badge)](https://www.jsdelivr.com/package/gh/ElliottStorey/ClientInfo) :(
+# ClientInfo
 A JavaScript module to get client info using the device's IP address and the geolocation API.
 ## Usage
 #### Import Script
