@@ -12,69 +12,23 @@ async function data() {
   return data;
 }
 
-async function getCurrentPositionPlus() {
-  let coords = await data();
-  let GeolocationCoordinates = {
-    accuracy: null,
-    altitude: null,
-    altitudeAccuracy: null,
-    heading: null,
-    latitude: coords.loc.split(",")[0],
-    longitude: coords.loc.split(",")[1],
-    speed: null
+async function getDeviceInfo() {
+  let success = async (GeolocationPosition) => {
+    let loc = `${GeolocationPosition.coords.latitude},${GeolocationPosition.coords.longitude}`;
+    let DeviceInfo = await data();
+    DeviceInfo.loc = loc;
+    delete DeviceInfo.readme;
+    return DeviceInfo;
   }
-  let GeolocationPosition = {
-    coords: GeolocationCoordinates,
-    timestamp: + new Date()
+  let error = async (GeolocationPositionError) => {
+    console.log(GeolocationPositionError);
+    let DeviceInfo = await data();
+    delete DeviceInfo.readme;
+    return DeviceInfo;
+  }
+  let options = {
+    enableHighAccuracy: true,
+    maximumAge: 0
   };
-  return GeolocationPosition;
-}
-
-async function getCurrentPosition(finalSuccess, finalError, options) {
-  async function success(GeolocationPosition) {
-    try {
-      let GeolocationPositionPlus = Object.assign(GeolocationPosition, await data());
-      await finalSuccess(GeolocationPositionPlus);
-    } catch (error) {
-      await finalError(error);
-    }
-  }
-  async function error(error) {
-    try {
-      console.log(error);
-      let GeolocationPositionPlus = Object.assign(await getCurrentPositionPlus(), await data());
-      await finalSuccess(GeolocationPositionPlus);
-    } catch (error) {
-      await finalError(error);
-    }
-  }
-  if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(success, error, options);
-  } else {
-    await error();
-  }
-}
-
-async function watchPosition(success, error, options) {
-  try {
-    if ("geolocation" in navigator) {
-
-    } else {
-
-    }
-  } catch (err) {
-    error(err);
-  }
-}
-
-async function clearWatch(success, error, options) {
-  try {
-    if ("geolocation" in navigator) {
-
-    } else {
-
-    }
-  } catch (err) {
-    error(err);
-  }
+  navigator.geolocation.getCurrentPosition(success, error, options);
 }
