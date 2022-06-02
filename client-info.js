@@ -12,19 +12,19 @@ async function data() {
   return data;
 }
 
-async function getDeviceInfo(success, error) {
+async function getClientInfo(success, error) {
   let useGeolocation = async (GeolocationPosition) => {
     let loc = `${GeolocationPosition.coords.latitude},${GeolocationPosition.coords.longitude}`;
-    let DeviceInfo = await data();
-    DeviceInfo.loc = loc;
-    delete DeviceInfo.readme;
-    success(DeviceInfo);
+    let ClientInfo = await data();
+    ClientInfo.loc = loc;
+    delete ClientInfo.readme;
+    success(ClientInfo);
   }
   let useData = async (GeolocationPositionError) => {
     console.log(GeolocationPositionError);
-    let DeviceInfo = await data();
-    delete DeviceInfo.readme;
-    success(DeviceInfo);
+    let ClientInfo = await data();
+    delete ClientInfo.readme;
+    success(ClientInfo);
   }
   let options = {
     enableHighAccuracy: true,
