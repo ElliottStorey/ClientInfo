@@ -1,6 +1,6 @@
 [![](https://data.jsdelivr.com/v1/package/gh/ElliottStorey/ClientInfo/badge)](https://www.jsdelivr.com/package/gh/ElliottStorey/ClientInfo) :(
 # ClientInfo
-A JavaScript module to get client info using the device's IP address and the geolocation API.
+ClientInfo is a JavaScript module that retrieves client information using the device's IP address and/or the geolocation API.
 ## Usage
 #### Import Script
 Paste this into the \<head> of your html file:
