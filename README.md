@@ -1,4 +1,3 @@
-[![](https://data.jsdelivr.com/v1/package/gh/ElliottStorey/ClientInfo/badge)](https://www.jsdelivr.com/package/gh/ElliottStorey/ClientInfo) :(
 # ClientInfo
 ClientInfo is a JavaScript module that retrieves client information using the device's IP address and/or the geolocation API.
 ## Usage
