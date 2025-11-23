@@ -1,18 +1,25 @@
 # ClientInfo
+
 ClientInfo is a JavaScript module that retrieves client information using the device's IP address and/or the geolocation API.
-## Usage
-#### Import Script
-Paste this into the \<head> of your html file:
-```
+
+## Getting Started
+
+### Installation
+
+Paste this into the <head> of your html file:
+
+```html
 <script src="https://cdn.jsdelivr.net/gh/ElliottStorey/client-info@master/client-info.min.js"></script>
 ```
-#### Get Device Info
-```
+
+### Usage
+
+```javascript
 let success = (clientInfo) => {
-  console.log(clientInfo)
+    console.log(clientInfo)
 }
 let error = (error) => {
-  console.log(error)
+    console.log(error)
 }
 let clientInfo = getClientInfo(success, error);
 ```
